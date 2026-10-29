@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% block title %}Order |{{block.super}} {% endblock %}}
+{% block content %}
+<h2>Table</h2>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Image</th>
+      <th scope="col">Product</th>
+      <th scope="col">Customers</th>
+      <th scope="col">CEmail</th>
+      <th scope="col">Quantity</th>
+      <th scope="col">Total</th>
+      <th scope="col">Functions</th>
+    </tr>
+  </thead>
+  <tbody>
+  {% for o in orders %}
+    <tr>
+      <th scope="row">{{o.id}}</th>
+      {% if o.product.image %}
+      <td><img src="{{o.product.image.url}}" alt="Product Image" height="80px"></td>
+      {% else %}
+      <td>No Image</td>
+      {% endif %}
+      <td>{{o.product.title}}</td>
+      <td>{{o.customer_name}}</td>
+      <td>{{o.email}}</td>
+      <td>{{o.quantity}}</td>
+      <td>{{o.total}}</td>
+      <td>
+      <a href="{% url 'order_update' o.pk %}" class="btn btn-primary">Edit</a>
+      <a href="{% url 'order_delete' o.pk %}" class="btn btn-danger">Delete</a>
+      </td>
+    </tr>
+  {% endfor %}
+  </tbody>
+</table>
+<a href="{% url 'home' %}" class="btn btn-primary">Home</a>
+{% endblock %}

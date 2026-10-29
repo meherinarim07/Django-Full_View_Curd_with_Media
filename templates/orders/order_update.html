@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block title %}Update Order{% endblock %}
+{% block content %}
+<h2>Update Order</h2>
+<p><b>{{order.product}}</b></p>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="btn btn-success">Update</button>
+    <a href="{% url 'orders' %}"class="btn btn-danger">Cancel</a>
+</form>
+{% endblock %}

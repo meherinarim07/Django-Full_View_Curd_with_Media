@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block title %} DeleteOrder{% endblock %}
+{% block content %}
+<h2>Review Order</h2>
+<p>Are U sure <b>{{review.review_name}}</b>that u want to delete th review?</p>
+<form method="post" onsubmit="return confirm('Are u sure?')">
+    {% csrf_token %}
+    <button type="submit" class="btn btn-danger">Delete</button>
+    <a href="{% url 'reviews' %}"class="btn btn-secondary">Cancel</a>
+</form>
+{% endblock %}
+
+
+
+
+

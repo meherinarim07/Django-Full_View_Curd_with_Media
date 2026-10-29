@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block title %}Home |{{block.super}}{% endblock %}
+{% block content %}
+<h1>Home Page</h1>
+<p>Welcome to my shop!</p>
+<a href="{% url 'products' %}" class="btn btn-success">Product</a>
+
+<a href="{% url 'orders' %}" class="btn btn-success">Orders</a>
+
+<a href="{% url 'reviews' %}" class="btn btn-success">Reviews</a>
+{% endblock %}
+
+

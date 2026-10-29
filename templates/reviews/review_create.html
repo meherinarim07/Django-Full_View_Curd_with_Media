@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block title %}Review Create|{{block.super}}{% endblock %}
+{% block content %}
+<h2>Add Review</h2>
+<form method="post">
+    {% csrf_token %}
+    {{form.as_p}}
+    <button type="success" class="btn btn-success">Submit</button>
+    <a href="{% url 'reviews' %}" class="btn btn-danger">Cancel</a>
+</form>
+{% endblock %}
